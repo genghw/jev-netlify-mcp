@@ -5,6 +5,19 @@ dist/
 __pycache__/
 *.pyc
 .venv/
+.venv*/
+venv/
 .pytest_cache/
 node_modules/
 .netlify/
+
+# 本地产物：用量数据、日志、备份
+data/
+*.log
+*.log.txt
+usage*.csv
+*.bak
+
+# 本地私有文档（含真实站点地址、绝对路径、个人环境信息）
+部署记录.local.md
+*.local.md
