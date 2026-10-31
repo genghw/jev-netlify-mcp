@@ -139,7 +139,9 @@ def cmd_check(args: argparse.Namespace) -> None:
     if status == 401:
         print("The deployed proxy has a different key hash. Run `rebuild` and deploy dist/ again.")
     if args.live and status == 200:
+        # model 是上游必填字段；缺了会被 Jev 以 400 invalid_req_data 拒绝。
         status, body = _call(url + "/v1/systemone", key, {
+            "model": "jev-latest",
             "state": "The package arrived two weeks late and the box was crushed.",
             "questions": {"complaint": {"type": "noul", "instructions": "The customer is complaining"}},
         })
